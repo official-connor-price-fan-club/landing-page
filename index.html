@@ -1,155 +1,160 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"></meta>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
-    <title>Welcome Screen</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Screen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(to bottom, black, black);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            padding: 2rem 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, black, black);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: white;
+      overflow-y: auto;
+    }
 
-        .container {
-            width: 100%;
-            max-width: 400px;
-        }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
 
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.5rem;
-            margin-bottom: 3rem;
-        }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+    }
 
-        .image-wrapper {
-            position: relative;
-            aspect-ratio: 1/1;
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
+    .image-wrapper {
+      position: relative;
+      aspect-ratio: 1/1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
 
-        .image-wrapper.wide {
-            grid-column: span 2;
-            aspect-ratio: 2/1;
-        }
+    .image-wrapper.wide {
+      grid-column: span 2;
+      aspect-ratio: 2/1;
+    }
 
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .welcome-text {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: white;
-        }
+    .welcome-text {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-        .welcome-text h1 {
-            font-size: 1.875rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+    .welcome-text h1 {
+      font-size: 1.875rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
 
-        .welcome-text p {
-            color: #d1d5db;
-        }
+    .welcome-text p {
+      color: #d1d5db;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
 
-        .button-container {
-            display: flex;
-            gap: 0.5rem;
-        }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
 
-        .btn {
-            flex: 1;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            font-size: 1.25rem;
-            transition: background-color 0.2s;
-        }
+    .btn {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.2s;
+      width: 100%;
+    }
 
-        .btn.primary {
-            background-color: #facc15;
-            color: black;
-        }
+    .btn.primary {
+      background-color: #facc15;
+      color: black;
+    }
 
-        .btn.primary:hover {
-            background-color: #eab308;
-        }
+    .btn.primary:hover {
+      background-color: #eab308;
+    }
 
-        .btn.secondary {
-            background-color: transparent;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .btn.secondary {
+      background-color: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .btn.secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+    .btn.secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
 
-        @media (max-width: 400px) {
-            .container {
-                width: 100%;
-            }
-            
-            .welcome-text h1 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    @media (max-width: 400px) {
+      .welcome-text h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="image-grid">
-            <div class="image-wrapper">
-                <img alt="Creative photo 1" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqAjvESgEFgufa2J4fIIwbZGP8Nzx13RU_xqKEBQ783dG2W5Qw2zx-4mdFEevP7olXuwtMKHiUSQ9uVmUCF90EHNzTXRQxfdHFNmRdVvfHBrLOJCrOZSm8Mz84NdmtSUF4bgHmiin0-OHrL2tcUVHo-Td0sNSkJJXFG-bSHbewJHKvBKVZ7qkGqayuGbA/s474/1.webp" />
-            </div>
-            <div class="image-wrapper">
-                <img alt="Creative photo 2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi20RqFb3u-6JtuQUsjctbomWPbvzdz8V53G_bbiPtPLEed8JkglMq6RxYgJFWAsIk_syoSbmkzZYInLYqSFU2qRmYXEnpixU5b6dhWnOpQyadNnQdYqD5QVyQVdM-00fz0LD-GlaXLlDmntTszPLh5AQJXNk4gcXk3iPyDoTv2FIkbUftCww7S5hwNsiU/s474/OIP.webp" />
-            </div>
-            <div class="image-wrapper wide">
-                <img alt="Creative photo 3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeFn_gBnWXDlYjfDFJ8nxVR3ELFY7WfhhQ-YiHrLmP_8YQL66JfoVmkllBCuC-9Xk8UpPkKmy8Jw4huj4ymw4neX1hlm6cZFjA_HUdEssOSQQdkGmSi4Z4GzIqT8Hgs5JOj0dDm5eo39xMiRObSu0mPwfW1mmHcOXObNx4-qOUq19fb4Jj0pY8dBoNULU/s322/OIP%20%281%29.jpeg"  />
-            </div>
-            <div class="image-wrapper">
-                <img alt="Creative photo 4" src= "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0GoCHHwAEkYnssxmdZBka226UusAM7rwdokfAJYIfIZRe3EIlqSjPIlvarqSTZFJKTJYB1j2FuODPfYf3FUvXOFjXeB-v5fATMp0Isc1SuB4SszjtCh1p29Qvd66t_mXW9sfoHop0HLeW3U5zlwZPMyfKmGddJWA7z7n-Cbu9FRsmg_oo9FTi17fHP94/s474/OIP.jpeg"/>
-            </div>
-            <div class="image-wrapper">
-                <img alt="Creative photo 5" src= "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkg2cUiZ3VrHrf54OA5mV3O1RAvEsW8h0hr0XsSac3O67ihl365CYYTK0U8OtQuDhH3O-9IPkBGV1MVgP2KcMnMiydR3eFcm_KcDkiHbL3bWEPde0cZ2nCO7N8xkACounYIFjcoGn_Co3Dv9IxIkn2SWFfhOxDsqyw8XfQS7KJKx2_K3be33YSPWFppwQ/s357/OIP%20%281%29.webp" />
-            </div>
-        </div>
-
-        <div class="welcome-text">
-            <h1>Welcome to Connor price Official Fan Club.</br> More Than Music. We’re Family.
-              
-</h1>
-            <p>This isn’t just a fan club — it’s a home for every Connor Price fan worldwide. When you join, you’re not just following an artist; you’re becoming part of a tight-knit family that uplifts, supports, and celebrates one another.
-
-Here, we share more than just beats and bars — we share stories, moments, and real connections. Whether you're here to vibe with the music, connect with like-minded fans, or find a space where your voice matters, you belong here.
-
-Together, we grow. Together, we support.
-Welcome to the Connor Price family — where every fan counts.</p>
-        </div>
-
-        <div class="button-container">
-          <a href="https://joyce-white-vance.blogspot.com/p/membership-cards.html">
-            <button class="btn primary">Apply for membership fan card</button></a>
-          <a href="https://joyce-white-vance.blogspot.com/p/registration-form-margin-0-padding-0.html">
-            <button class="btn secondary">Join the fan club community
-              </button></a>
-        </div>
+  <div class="container">
+    <div class="image-grid">
+      <div class="image-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqAjvESgEFgufa2J4fIIwbZGP8Nzx13RU_xqKEBQ783dG2W5Qw2zx-4mdFEevP7olXuwtMKHiUSQ9uVmUCF90EHNzTXRQxfdHFNmRdVvfHBrLOJCrOZSm8Mz84NdmtSUF4bgHmiin0-OHrL2tcUVHo-Td0sNSkJJXFG-bSHbewJHKvBKVZ7qkGqayuGbA/s474/1.webp" alt="Creative photo 1" />
+      </div>
+      <div class="image-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi20RqFb3u-6JtuQUsjctbomWPbvzdz8V53G_bbiPtPLEed8JkglMq6RxYgJFWAsIk_syoSbmkzZYInLYqSFU2qRmYXEnpixU5b6dhWnOpQyadNnQdYqD5QVyQVdM-00fz0LD-GlaXLlDmntTszPLh5AQJXNk4gcXk3iPyDoTv2FIkbUftCww7S5hwNsiU/s474/OIP.webp" alt="Creative photo 2" />
+      </div>
+      <div class="image-wrapper wide">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeFn_gBnWXDlYjfDFJ8nxVR3ELFY7WfhhQ-YiHrLmP_8YQL66JfoVmkllBCuC-9Xk8UpPkKmy8Jw4huj4ymw4neX1hlm6cZFjA_HUdEssOSQQdkGmSi4Z4GzIqT8Hgs5JOj0dDm5eo39xMiRObSu0mPwfW1mmHcOXObNx4-qOUq19fb4Jj0pY8dBoNULU/s322/OIP%20%281%29.jpeg" alt="Creative photo 3" />
+      </div>
+      <div class="image-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0GoCHHwAEkYnssxmdZBka226UusAM7rwdokfAJYIfIZRe3EIlqSjPIlvarqSTZFJKTJYB1j2FuODPfYf3FUvXOFjXeB-v5fATMp0Isc1SuB4SszjtCh1p29Qvd66t_mXW9sfoHop0HLeW3U5zlwZPMyfKmGddJWA7z7n-Cbu9FRsmg_oo9FTi17fHP94/s474/OIP.jpeg" alt="Creative photo 4" />
+      </div>
+      <div class="image-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkg2cUiZ3VrHrf54OA5mV3O1RAvEsW8h0hr0XsSac3O67ihl365CYYTK0U8OtQuDhH3O-9IPkBGV1MVgP2KcMnMiydR3eFcm_KcDkiHbL3bWEPde0cZ2nCO7N8xkACounYIFjcoGn_Co3Dv9IxIkn2SWFfhOxDsqyw8XfQS7KJKx2_K3be33YSPWFppwQ/s357/OIP%20%281%29.webp" alt="Creative photo 5" />
+      </div>
     </div>
+
+    <div class="welcome-text">
+      <h1>Welcome to Connor Price Official Fan Club.<br>More Than Music. We’re Family.</h1>
+      <p>
+        This isn’t just a fan club — it’s a home for every Connor Price fan worldwide.
+        When you join, you’re not just following an artist; you’re becoming part of a
+        tight-knit family that uplifts, supports, and celebrates one another.<br><br>
+        Here, we share more than just beats and bars — we share stories, moments, and real
+        connections. Whether you're here to vibe with the music, connect with like-minded
+        fans, or find a space where your voice matters, you belong here.<br><br>
+        Together, we grow. Together, we support.<br>
+        Welcome to the Connor Price family — where every fan counts.
+      </p>
+    </div>
+
+    <div class="button-container">
+      <a href="https://joyce-white-vance.blogspot.com/p/membership-cards.html">
+        <button class="btn primary">Apply for Membership Fan Card</button>
+      </a>
+      <a href="https://joyce-white-vance.blogspot.com/p/registration-form-margin-0-padding-0.html">
+        <button class="btn secondary">Join the Fan Club Community</button>
+      </a>
+    </div>
+  </div>
 </body>
 </html>
+
